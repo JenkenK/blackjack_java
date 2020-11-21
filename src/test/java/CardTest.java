@@ -1,4 +1,7 @@
-import javax.smartcardio.Card;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class CardTest {
     Card card;

@@ -16,4 +16,10 @@ public class DeckTest {
     public void deckStartsWith52Cards() {
         assertEquals(52, deck.cardCount());
     }
+
+    @Test
+    public void cardsCanBeTakenFromDeck(){
+        deck.dealOne();
+        assertEquals(51, deck.cardCount());
+    }
 }

@@ -23,18 +23,31 @@ public class Runner {
         // gets player's name from 2nd index of players in game array
 //        System.out.println(game.getPlayers().get(1).getName());
 
+
         // prints out prompt of "--players name-- has: "
         String playerCards = String.format("%s has:", game.getPlayers().get(1).getName());
         System.out.println(playerCards);
-
         // loops through players cards in hand and prints it out cards and total hand value"
         for(int i = 0; i < game.getPlayers().get(1).cardCount(); i ++){
             System.out.println(game.getPlayers().get(1).showCard(i));
         }
         System.out.printf("Hand total: %s%n", game.getPlayers().get(1).handTotal());
 
+
+        // this checks if their hand is less than 21 and asks if they want to hit or stick
         if (game.getPlayers().get(1).handTotal() < 21){
-            System.out.println("Hit or Stick?");
+            System.out.println("Hit or Stick? (input H/h or S/s)");
+            String playerMove = scanner.next();
+            if (playerMove.equals("h") || playerMove.equals("H")){
+                do {
+                    Card cardFromHit = deck.dealOne();
+                    game.getPlayers().get(1).takeCard(cardFromHit);
+                    System.out.println(cardFromHit.cardName());
+                    System.out.println(game.getPlayers().get(1).handTotal());
+                }
+                while(game.getPlayers().get(1).handTotal() < 21);
+            }
+//            System.out.println(game.getPlayers().get(1).handTotal());
         }
 
 //        for(Player player: game.getPlayers()){

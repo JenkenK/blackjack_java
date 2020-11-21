@@ -24,4 +24,12 @@ public class Deck {
     public Card dealOne() {
         return this.cards.remove(0);
     }
+
+    public ArrayList<String> showAllCards(){
+        ArrayList<String> listOfCards = new ArrayList<String>();
+        for (Card card : this.cards){
+            listOfCards.add(card.cardName());
+        }
+        return listOfCards;
+    }
 }

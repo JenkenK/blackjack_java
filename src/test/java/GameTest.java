@@ -52,4 +52,11 @@ public class GameTest {
         assertTrue(game.checkDraw());
     }
 
+    @Test
+    public void gameCanCheckWinner(){
+        player.takeCard(highCard);
+        dealer.takeCard(lowCard);
+        assertEquals(player, game.checkWinner());
+    }
+
 }

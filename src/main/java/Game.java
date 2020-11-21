@@ -37,4 +37,16 @@ public class Game {
         }
         return drawGame;
     }
+
+    public Player checkWinner(){
+        int highest = 0;
+        Player winner = null;
+        for(Player player:this.players){
+            if(player.handTotal() > highest){
+                highest = player.handTotal();
+                winner = player;
+            }
+        }
+        return winner;
+    }
 }

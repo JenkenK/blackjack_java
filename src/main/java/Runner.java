@@ -85,8 +85,13 @@ public class Runner {
         if(game.checkDraw()){
             System.out.println("It's a draw!");
         } else {
-            if (game.getPlayers().get(0).handTotal() > 21){
+            if (game.getPlayers().get(0).handTotal() > 21 && game.getPlayers().get(1).handTotal() > 21){
+                System.out.println("BUST.");
+            } else if (game.getPlayers().get(0).handTotal() > 21){
                 String output = String.format("%s wins!", game.getPlayers().get(1).getName());
+                System.out.println(output);
+            } else if (game.getPlayers().get(1).handTotal() > 21){
+                String output = String.format("%s wins!", game.getPlayers().get(0).getName());
                 System.out.println(output);
             } else {
                 Player winner = game.checkWinner();
@@ -95,5 +100,23 @@ public class Runner {
                 System.out.println(output);
             }
         }
+// backup
+//        if(game.checkDraw()){
+//            System.out.println("It's a draw!");
+//        } else {
+//            if (game.getPlayers().get(0).handTotal() > 21){
+//                String output = String.format("%s wins!", game.getPlayers().get(1).getName());
+//                System.out.println(output);
+//            } else {
+//                Player winner = game.checkWinner();
+//                String winnerName = winner.getName();
+//                String output = String.format("%s wins!", winnerName);
+//                System.out.println(output);
+//            }
+//        }
     }
 }
+
+
+
+

@@ -77,7 +77,10 @@ public class Runner {
         }
 
         if (game.getPlayers().get(1).handTotal() > 21){
-            System.out.println("\n----- RESULTS -----");
+            System.out.println("\n---------- // RESULTS // ----------");
+            System.out.println("\n----- DEALERS CARDS -----");
+            displayPlayerHand(game, 0);
+            aceChecker(game, deck, 0);
             String output = String.format("%s wins!", game.getPlayers().get(0).getName());
             System.out.println(output);
             System.exit(0);
@@ -96,7 +99,7 @@ public class Runner {
             }
         }
 
-        System.out.println("\n----- RESULTS -----");
+        System.out.println("\n---------- // RESULTS // ----------");
         if(game.checkDraw()){
             System.out.println("It's a draw!");
         } else {

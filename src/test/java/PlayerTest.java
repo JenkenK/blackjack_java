@@ -24,11 +24,11 @@ public class PlayerTest {
         assertEquals(0, player.cardCount());
     }
 
-    @Test
-    public void playerHasHandTotal(){
-        player.takeCard(card);
-        assertEquals(1, player.handTotal());
-    }
+//    @Test
+//    public void playerHasHandTotal(){
+//        player.takeCard(card);
+//        assertEquals(1, player.handTotal());
+//    }
 
     @Test
     public void playerCanShowCard(){

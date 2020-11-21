@@ -1,5 +1,5 @@
 public enum Rank {
-    ACE(1),
+    ACE(11),
     TWO(2),
     THREE(3),
     FOUR(4),
@@ -13,7 +13,7 @@ public enum Rank {
     QUEEN(10),
     KING(10);
 
-    private final int value;
+    public final int value;
 
     Rank(int value) {
         this.value = value;

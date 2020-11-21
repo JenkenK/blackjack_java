@@ -45,12 +45,12 @@ public class GameTest {
         assertEquals(5, dealer.cardCount());
     }
 
-    @Test
-    public void gameCanCheckDraw(){
-        player.takeCard(highCard);
-        dealer.takeCard(highCard);
-        assertTrue(game.checkDraw());
-    }
+//    @Test
+//    public void gameCanCheckDraw(){
+//        player.takeCard(highCard);
+//        dealer.takeCard(highCard);
+//        assertTrue(game.checkDraw());
+//    }
 
 //    @Test
 //    public void gameCanCheckWinner(){

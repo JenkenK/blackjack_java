@@ -25,7 +25,7 @@ public class Runner {
                 aceCounter += 1;
             }
         }
-        String output = String.format("Ace counts: %s", aceCounter);
+        String output = String.format("(Ace counts: %s)", aceCounter);
         System.out.println(output);
     }
 
@@ -50,11 +50,13 @@ public class Runner {
         System.out.println("----- PLAYERS CARDS -----");
         displayPlayerHand(game, 1);
         aceChecker(game, deck, 1);
+        String dealerCard = String.format("\nDealer face up card: %s", game.getPlayers().get(0).showCard(0));
+        System.out.println(dealerCard);
 
 
         // this checks if their hand is less than 21 and asks if they want to hit or stick
         while (game.getPlayers().get(1).handTotal() < 21) {
-            System.out.println("Hit or Stick? (input H/h or S/s)");
+            System.out.println("\nHit or Stick? (input H/h or S/s)");
             String playerMove = scanner.next();
             if (playerMove.equals("h") || playerMove.equals("H")){
                 hit(game, deck, 1);
@@ -68,12 +70,19 @@ public class Runner {
             }
         }
 
-        System.out.println("----- DEALERS CARDS -----");
+        if (game.getPlayers().get(1).handTotal() > 21){
+            System.out.println("\n----- RESULTS -----");
+            String output = String.format("%s wins!", game.getPlayers().get(0).getName());
+            System.out.println(output);
+            System.exit(0);
+        }
+
+        System.out.println("\n----- DEALERS CARDS -----");
         displayPlayerHand(game, 0);
         aceChecker(game, deck, 0);
         while(game.getPlayers().get(0).handTotal() < 17){
             hit(game, deck, 0);
-            System.out.println("----- DEALERS CARDS -----");
+            System.out.println("\n----- DEALERS CARDS -----");
             displayPlayerHand(game, 0);
             aceChecker(game, deck, 0);
             if (game.getPlayers().get(0).handTotal() >= 17){
@@ -81,7 +90,7 @@ public class Runner {
             }
         }
 
-        System.out.println("----- RESULTS -----");
+        System.out.println("\n----- RESULTS -----");
         if(game.checkDraw()){
             System.out.println("It's a draw!");
         } else {
@@ -100,20 +109,6 @@ public class Runner {
                 System.out.println(output);
             }
         }
-// backup
-//        if(game.checkDraw()){
-//            System.out.println("It's a draw!");
-//        } else {
-//            if (game.getPlayers().get(0).handTotal() > 21){
-//                String output = String.format("%s wins!", game.getPlayers().get(1).getName());
-//                System.out.println(output);
-//            } else {
-//                Player winner = game.checkWinner();
-//                String winnerName = winner.getName();
-//                String output = String.format("%s wins!", winnerName);
-//                System.out.println(output);
-//            }
-//        }
     }
 }
 

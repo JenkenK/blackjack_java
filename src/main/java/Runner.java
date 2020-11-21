@@ -31,14 +31,10 @@ public class Runner {
 
         System.out.println("Enter player name: ");
         String playerName = scanner.next();
-//        System.out.println(playerName);
         Player player1 = new Player(playerName);
         game.addPlayer(player1);
 
         game.start(2);
-
-        // gets player's name from 2nd index of players in game array
-//        System.out.println(game.getPlayers().get(1).getName());
 
         System.out.println("----- PLAYERS CARDS -----");
         displayPlayerHand(game, 1);
@@ -58,21 +54,6 @@ public class Runner {
                 System.out.println("Please input H/h or S/s. ");
             }
         }
-
-
-
-// probs can get rid of this
-//        if (game.getPlayers().get(1).handTotal() < 21){
-//            System.out.println("Hit or Stick? (input H/h or S/s)");
-//            String playerMove = scanner.next();
-//            if (playerMove.equals("h") || playerMove.equals("H")){
-//                hit(game, deck);
-//            }
-//            displayPlayerHand(game);
-//            if (game.getPlayers().get(1).handTotal() > 21){
-//                game.checkWinner();
-//            }
-//        }
 
         System.out.println("----- DEALERS CARDS -----");
         displayPlayerHand(game, 0);

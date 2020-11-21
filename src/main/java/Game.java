@@ -26,4 +26,15 @@ public class Game {
             }
         }
     }
+
+    public boolean checkDraw(){
+        boolean drawGame = true;
+        int handTotal = this.players.get(0).handTotal();
+        for(Player player: this.players){
+            if(player.handTotal() != handTotal){
+                drawGame = false;
+            }
+        }
+        return drawGame;
+    }
 }

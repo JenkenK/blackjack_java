@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class GameTest {
 
@@ -42,6 +43,13 @@ public class GameTest {
         game.start(5);
         assertEquals(5, player.cardCount());
         assertEquals(5, dealer.cardCount());
+    }
+
+    @Test
+    public void gameCanCheckDraw(){
+        player.takeCard(highCard);
+        dealer.takeCard(highCard);
+        assertTrue(game.checkDraw());
     }
 
 }

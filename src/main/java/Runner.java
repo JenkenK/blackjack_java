@@ -18,11 +18,16 @@ public class Runner {
         game.getPlayers().get(index).takeCard(deck.dealOne());
     }
 
-//    public static void aceChecker(Game game, Deck deck, int index){
-//        for (Card card: game.getPlayers().get(index).getName()){
-//
-//        }
-//    }
+    public static void aceChecker(Game game, Deck deck, int index){
+        int aceCounter = 0;
+        for (Card card: game.getPlayers().get(index).getCards()){
+            if (card.getRank() == Rank.ACE){
+                aceCounter += 1;
+            }
+        }
+        String output = String.format("Ace counts: %s", aceCounter);
+        System.out.println(output);
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -42,12 +47,9 @@ public class Runner {
 
         game.start(2);
 
-//        System.out.println(game.getPlayers().get(1).getCards());
-//        System.out.println(game.getPlayers().get(1).showCard(0));
-//        System.out.println(game.getPlayers().get(1).showCard(1));
-
         System.out.println("----- PLAYERS CARDS -----");
         displayPlayerHand(game, 1);
+        aceChecker(game, deck, 1);
 
 
         // this checks if their hand is less than 21 and asks if they want to hit or stick
@@ -58,6 +60,7 @@ public class Runner {
                 hit(game, deck, 1);
                 System.out.println("----- PLAYERS CARDS -----");
                 displayPlayerHand(game,1 );
+                aceChecker(game, deck, 1);
             } else if (playerMove.equals("s") || playerMove.equals("S")){
                 break;
             } else {
@@ -67,10 +70,12 @@ public class Runner {
 
         System.out.println("----- DEALERS CARDS -----");
         displayPlayerHand(game, 0);
+        aceChecker(game, deck, 0);
         while(game.getPlayers().get(0).handTotal() < 17){
             hit(game, deck, 0);
             System.out.println("----- DEALERS CARDS -----");
             displayPlayerHand(game, 0);
+            aceChecker(game, deck, 0);
             if (game.getPlayers().get(0).handTotal() >= 17){
                 break;
             }

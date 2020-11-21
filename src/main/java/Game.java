@@ -43,37 +43,31 @@ public class Game {
     }
 
     public void checkWinner(Game game){
-//        int highest = 0;
-//        Player winner = null;
-//        for(Player player:this.players){
-//            if(player.handTotal() > highest){
-//                highest = player.handTotal();
-//                winner = player;
-//            }
-//        }
-//        return winner;
-
-        if (game.getPlayers().get(0).handTotal() > 21 && game.getPlayers().get(1).handTotal() > 21){
-            System.out.println("BUST.");
-        } else if (game.getPlayers().get(0).handTotal() > 21){
-            String output = String.format("%s wins!", game.getPlayers().get(1).getName());
-            System.out.println(output);
-        } else if (game.getPlayers().get(1).handTotal() > 21){
-            String output = String.format("%s wins!", game.getPlayers().get(0).getName());
-            System.out.println(output);
+        if (game.checkDraw()){
+            System.out.println("It's a draw!");
         } else {
-            int highest = 0;
-            Player winner = null;
-            for(Player player : game.getPlayers()){
-                if(player.handTotal() > highest){
-                    highest = player.handTotal();
-                    winner = player;
+            if (game.getPlayers().get(0).handTotal() > 21 && game.getPlayers().get(1).handTotal() > 21){
+                System.out.println("BUST.");
+            } else if (game.getPlayers().get(0).handTotal() > 21){
+                String output = String.format("%s wins!", game.getPlayers().get(1).getName());
+                System.out.println(output);
+            } else if (game.getPlayers().get(1).handTotal() > 21){
+                String output = String.format("%s wins!", game.getPlayers().get(0).getName());
+                System.out.println(output);
+            } else {
+                int highest = 0;
+                Player winner = null;
+                for(Player player : game.getPlayers()){
+                    if(player.handTotal() > highest){
+                        highest = player.handTotal();
+                        winner = player;
+                    }
                 }
+                assert winner != null;
+                String winnerName = winner.getName();
+                String output = String.format("%s wins!", winnerName);
+                System.out.println(output);
             }
-            assert winner != null;
-            String winnerName = winner.getName();
-            String output = String.format("%s wins!", winnerName);
-            System.out.println(output);
         }
     }
 }

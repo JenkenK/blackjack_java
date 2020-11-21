@@ -81,14 +81,17 @@ public class Runner {
             System.out.println("\n----- DEALERS CARDS -----");
             displayPlayerHand(game, 0);
             aceChecker(game, deck, 0);
-            String output = String.format("%s wins!", game.getPlayers().get(0).getName());
-            System.out.println(output);
+            String output1 = String.format("\n%s loses", game.getPlayers().get(1).getName());
+            String output2 = String.format("%s wins!", game.getPlayers().get(0).getName());
+            System.out.println(output1);
+            System.out.println(output2);
             System.exit(0);
         }
 
         System.out.println("\n----- DEALERS CARDS -----");
         displayPlayerHand(game, 0);
         aceChecker(game, deck, 0);
+
         while(game.getPlayers().get(0).handTotal() < 17){
             hit(game, deck, 0);
             System.out.println("\n----- DEALERS CARDS -----");
@@ -100,11 +103,8 @@ public class Runner {
         }
 
         System.out.println("\n---------- // RESULTS // ----------");
-        if(game.checkDraw()){
-            System.out.println("It's a draw!");
-        } else {
-            game.checkWinner(game);
-        }
+        game.checkWinner(game);
+
     }
 }
 

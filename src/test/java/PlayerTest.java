@@ -29,4 +29,10 @@ public class PlayerTest {
         player.takeCard(card);
         assertEquals(1, player.handTotal());
     }
+
+    @Test
+    public void playerCanShowCard(){
+        player.takeCard(card);
+        assertEquals("ACE of SPADES", player.showCard(0));
+    }
 }

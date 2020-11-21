@@ -29,4 +29,8 @@ public class Player {
         }
         return total;
     }
+
+    public String showCard(int index){
+        return this.hand.get(index).cardName();
+    }
 }

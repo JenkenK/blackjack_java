@@ -10,6 +10,10 @@ public class Player {
         this.hand = new ArrayList<Card>();
     }
 
+    public  ArrayList<Card> getCards(){
+        return this.hand;
+    }
+
     public String getName(){
         return this.name;
     }

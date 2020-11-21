@@ -18,4 +18,9 @@ public class PlayerTest {
     public void playerHasName(){
         assertEquals("Jenken", player.getName());
     }
+
+    @Test
+    public void playerStartsEmptyHanded(){
+        assertEquals(0, player.cardCount());
+    }
 }

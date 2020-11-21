@@ -25,4 +25,9 @@ public class CardTest {
     public void cardHasValue(){
         assertEquals(1, card.getValue());
     }
+
+    @Test
+    public void cardShowsName(){
+        assertEquals("ACE of SPADES", card.cardName());
+    }
 }

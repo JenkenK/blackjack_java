@@ -31,7 +31,7 @@ public class Game {
         }
     }
 
-    public boolean checkDraw(Game game, int index){
+    public boolean checkDraw(){
         boolean drawGame = true;
         int handTotal = this.players.get(0).handTotal();
         for(Player player: this.players){
@@ -43,7 +43,7 @@ public class Game {
     }
 
     public void checkWinner(Game game){
-        if (game.checkDraw(game, 1)){
+        if (game.checkDraw()){
             System.out.println("It's a draw!");
         } else {
             if (game.getPlayers().get(0).handTotal() > 21 && game.getPlayers().get(1).handTotal() > 21){

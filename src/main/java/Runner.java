@@ -21,10 +21,16 @@ public class Runner {
 
     public static void checkBlackjack(Game game, int index){
         if (game.getPlayers().get(index).cardCount() == 2 && game.getPlayers().get(index).handTotal() == 21){
-            game.checkDraw(game, 1);
-            System.out.println("\n/////// BLACKJACK /////");
-            String output = String.format("%s wins!", game.getPlayers().get(index).getName());
-            System.exit(0);
+            if (game.checkDraw()){
+                System.out.println("\n---------- // RESULTS // ----------");
+                System.out.println("It's a draw!");
+                System.exit(0);
+            } else {
+                System.out.println("\n/////// BLACKJACK /////");
+                String blackoutOutput = String.format("%s wins!", game.getPlayers().get(index).getName());
+                System.out.println(blackoutOutput);
+                System.exit(0);
+            }
         }
     }
 
@@ -45,9 +51,7 @@ public class Runner {
         game.addPlayer(player1);
 
         game.start(2);
-
-        // ace doesn't count as 11, hence can't ever get blackjack lol, you need to write ace logic first
-//        checkBlackjack(game, deck, 1);
+        checkBlackjack(game, 1);
 
         System.out.println("----- PLAYERS CARDS -----");
         displayPlayerHand(game, 1);

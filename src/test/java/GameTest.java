@@ -30,4 +30,11 @@ public class GameTest {
         assertEquals(2, game.playerCount());
     }
 
+    @Test
+    public void gameCanStart(){
+        game.start(1);
+        assertEquals(1, player.cardCount());
+        assertEquals(1, dealer.cardCount());
+    }
+
 }

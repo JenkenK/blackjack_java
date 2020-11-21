@@ -10,6 +10,10 @@ public class Game {
         this.deck = deck;
     }
 
+    public ArrayList<Player> getPlayers() {
+        return this.players;
+    }
+
     public int playerCount(){
         return this.players.size();
     }

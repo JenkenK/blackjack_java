@@ -11,7 +11,7 @@ public class Runner {
         for(int i = 0; i < game.getPlayers().get(index).cardCount(); i ++){
             System.out.println(game.getPlayers().get(index).showCard(i));
         }
-        System.out.printf("Hand total: %s%n", game.getPlayers().get(index).handTotal(game, index));
+        System.out.printf("Hand total: %s%n", game.getPlayers().get(index).handTotal());
     }
 
     public static void hit(Game game, Deck deck, int index){
@@ -34,7 +34,7 @@ public class Runner {
 //    }
 
     public static void checkBlackjack(Game game, int index){
-        if (game.getPlayers().get(index).cardCount() == 2 && game.getPlayers().get(index).handTotal(game, index) == 21){
+        if (game.getPlayers().get(index).cardCount() == 2 && game.getPlayers().get(index).handTotal() == 21){
             game.checkDraw(game, 1);
             System.out.println("\n/////// BLACKJACK /////");
             String output = String.format("%s wins!", game.getPlayers().get(index).getName());
@@ -71,7 +71,7 @@ public class Runner {
 
 
         // this checks if their hand is less than 21 and asks if they want to hit or stick
-        while (game.getPlayers().get(1).handTotal(game, 1) < 21) {
+        while (game.getPlayers().get(1).handTotal() < 21) {
             System.out.println("\nHit or Stick? (input H/h or S/s)");
             String playerMove = scanner.next();
             if (playerMove.equals("h") || playerMove.equals("H")){
@@ -86,7 +86,7 @@ public class Runner {
             }
         }
 
-        if (game.getPlayers().get(1).handTotal(game, 1) > 21){
+        if (game.getPlayers().get(1).handTotal() > 21){
             System.out.println("\n---------- // RESULTS // ----------");
             System.out.println("\n----- DEALERS CARDS -----");
             displayPlayerHand(game, 0);
@@ -102,12 +102,12 @@ public class Runner {
         displayPlayerHand(game, 0);
 //        aceChecker(game, deck, 0);
 
-        while(game.getPlayers().get(0).handTotal(game, 0) < 17){
+        while(game.getPlayers().get(0).handTotal() < 17){
             hit(game, deck, 0);
             System.out.println("\n----- DEALERS CARDS -----");
             displayPlayerHand(game, 0);
 //            aceChecker(game, deck, 0);
-            if (game.getPlayers().get(0).handTotal(game, 0) >= 17){
+            if (game.getPlayers().get(0).handTotal() >= 17){
                 break;
             }
         }

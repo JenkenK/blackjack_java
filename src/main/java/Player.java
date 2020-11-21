@@ -26,7 +26,7 @@ public class Player {
         this.hand.add(card);
     }
 
-    public int handTotal(Game game, int index){
+    public int handTotal(){
         int total = 0;
         for(Card card : this.hand){
             total += card.getValue();

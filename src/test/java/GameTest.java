@@ -37,4 +37,11 @@ public class GameTest {
         assertEquals(1, dealer.cardCount());
     }
 
+    @Test
+    public void gameCanDealMultipleCards(){
+        game.start(5);
+        assertEquals(5, player.cardCount());
+        assertEquals(5, dealer.cardCount());
+    }
+
 }

@@ -15,23 +15,9 @@ public class Runner {
     }
 
     public static void hit(Game game, Deck deck, int index){
-        game.getPlayers().get(index).takeCard(deck.dealOne());
+        Card drawCard = deck.dealOne();
+        game.getPlayers().get(index).takeCard(drawCard);
     }
-
-//    public static void aceChecker(Game game, int index){
-//        int aceCounter = 0;
-//        for (Card card: game.getPlayers().get(index).getCards()){
-//            if (card.getRank() == Rank.ACE){
-//                aceCounter += 1;
-//                if (game.getPlayers().get(index).handTotal() > 21 && aceCounter > 0){
-//                    // take away 10 from player hand total
-//                    aceCounter -= 1;
-//                }
-//            }
-//        }
-//        String output = String.format("(Ace counts: %s)", aceCounter);
-//        System.out.println(output);
-//    }
 
     public static void checkBlackjack(Game game, int index){
         if (game.getPlayers().get(index).cardCount() == 2 && game.getPlayers().get(index).handTotal() == 21){
@@ -78,7 +64,6 @@ public class Runner {
                 hit(game, deck, 1);
                 System.out.println("----- PLAYERS CARDS -----");
                 displayPlayerHand(game,1 );
-//                aceChecker(game, deck, 1);
             } else if (playerMove.equals("s") || playerMove.equals("S")){
                 break;
             } else {
@@ -90,7 +75,6 @@ public class Runner {
             System.out.println("\n---------- // RESULTS // ----------");
             System.out.println("\n----- DEALERS CARDS -----");
             displayPlayerHand(game, 0);
-//            aceChecker(game, deck, 0);
             String playerWinOutput = String.format("\n%s loses", game.getPlayers().get(1).getName());
             String dealerWinOutput = String.format("%s wins!", game.getPlayers().get(0).getName());
             System.out.println(playerWinOutput);
@@ -100,13 +84,11 @@ public class Runner {
 
         System.out.println("\n----- DEALERS CARDS -----");
         displayPlayerHand(game, 0);
-//        aceChecker(game, deck, 0);
 
         while(game.getPlayers().get(0).handTotal() < 17){
             hit(game, deck, 0);
             System.out.println("\n----- DEALERS CARDS -----");
             displayPlayerHand(game, 0);
-//            aceChecker(game, deck, 0);
             if (game.getPlayers().get(0).handTotal() >= 17){
                 break;
             }

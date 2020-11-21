@@ -28,28 +28,18 @@ public class Player {
 
     public int handTotal(){
         int total = 0;
+        int aceCounter = 0;
         for(Card card : this.hand){
             total += card.getValue();
-            int aceCounter = 0;
             if (card.getRank() == Rank.ACE){
                 aceCounter += 1;
-                if (total > 21 && aceCounter > 0){
-                    total -= 10;
-                    aceCounter -= 1;
-                }
             }
         }
 
-//        int aceCounter = 0;
-//        for (Card card: game.getPlayers().get(index).getCards()){
-//            if (card.getRank() == Rank.ACE){
-//                aceCounter += 1;
-//                if (game.getPlayers().get(index).handTotal(game, index) > 21 && aceCounter > 0){
-//                    total -= 10;
-//                    aceCounter -= 1;
-//                }
-//            }
-//        }
+        while (aceCounter > 0 && total > 21){
+            total -= 10;
+            aceCounter -= 1;
+        }
 
         return total;
     }

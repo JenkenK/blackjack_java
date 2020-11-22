@@ -51,13 +51,13 @@ public class Runner {
         game.addPlayer(player1);
 
         game.start(2);
-        checkBlackjack(game, 1);
 
         System.out.println("----- PLAYERS CARDS -----");
         displayPlayerHand(game, 1);
 //        aceChecker(game, deck, 1);
         String dealerCard = String.format("\nDealer face up card: %s", game.getPlayers().get(0).showCard(0));
         System.out.println(dealerCard);
+        checkBlackjack(game, 1);
 
 
         // this checks if their hand is less than 21 and asks if they want to hit or stick

@@ -5,13 +5,15 @@ public class Deck {
 
     private ArrayList<Card> cards;
 
+    // you can probably add a C style loop and have a variable called numOfDecks
     public Deck(){
         this.cards = new ArrayList<Card>();
-
-        for (Suit suit : Suit.values()){
-            for (Rank rank : Rank.values()){
-                Card card = new Card(suit, rank);
-                this.cards.add(card);
+        for (int i = 0; i < 6 ; i++){
+            for (Suit suit : Suit.values()){
+                for (Rank rank : Rank.values()){
+                    Card card = new Card(suit, rank);
+                    this.cards.add(card);
+                }
             }
         }
         Collections.shuffle(this.cards);

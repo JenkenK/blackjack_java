@@ -79,6 +79,7 @@ public class Runner {
             System.out.println("\n---------- // RESULTS // ----------");
             System.out.println("\n----- DEALERS CARDS -----");
             displayPlayerHand(game, 0);
+            checkBlackjack(game, 0);
             String playerWinOutput = String.format("\n%s loses", game.getPlayers().get(1).getName());
             String dealerWinOutput = String.format("%s wins!", game.getPlayers().get(0).getName());
             System.out.println(playerWinOutput);
@@ -88,6 +89,7 @@ public class Runner {
 
         System.out.println("\n----- DEALERS CARDS -----");
         displayPlayerHand(game, 0);
+        checkBlackjack(game, 0);
 
         while(game.getPlayers().get(0).handTotal() < 17){
             hit(game, deck, 0);
